@@ -60,12 +60,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              isEven ? "Genap" : "Ganjil",
-              style: TextStyle(
-                color: isEven ? Colors.red : Colors.blue,
-              )
-            ),
+            Text(isEven ? "Genap" : "Ganjil",
+                style: TextStyle(
+                  color: isEven ? Colors.red : Colors.blue,
+                )),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
@@ -78,16 +76,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            FloatingActionButton(
-              onPressed: _decrementCounter,
-              tooltip: 'Decrement',
-              child: const Icon(Icons.remove),
+            Visibility(
+              visible: _counter > 0,
+              child: FloatingActionButton(
+                onPressed: _decrementCounter,
+                tooltip: 'Decrement',
+                child: const Icon(Icons.remove),)
             ),
-            FloatingActionButton(
+            Visibility(
+              visible: true,
+              child: FloatingActionButton(
               onPressed: _incrementCounter,
               tooltip: 'Increment',
-              child: const Icon(Icons.add),
-            ),
+              child: const Icon(Icons.add),))
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
