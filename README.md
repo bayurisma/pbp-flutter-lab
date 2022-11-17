@@ -1,9 +1,10 @@
 # Counter_7
-# Tugas 7 PBP 
 
-Nama    :  Maulana Bayu Risma Santoso Sari<br>
-NPM     :  2106750401<br>
-Kelas   :  B
+Nama : Maulana Bayu Risma Santoso Sari<br>
+NPM : 2106750401<br>
+Kelas : B
+
+# Tugas 7 PBP
 
 ## Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget dan jelaskan perbedaan dari keduanya
 
@@ -35,3 +36,39 @@ Checklist pertama yaitu mengubah layout aplikasi dengan menambahkan dua Floating
 Checklist selanjutnya adalah menambahkan fungsi untuk increment dan decrement pada value ketika button ditekan. Untuk fungsi decrement hanya akan berjalan ketika value > 0.
 
 Checklist yang terakhir yaitu memunculkan tulisan Genap/Ganjil sesuai valuenya. Yang pertama adalah menambahkan getter dengan nama isEven untuk memeriksa apakah nilai counter genap atau ganjil. Kemudian widget Text ditambahkan dengan tulisan Genap berwarna merah ketika isEven bernilai True dan tulisan Ganjil berwarna biru ketika isEven bernilai false.
+
+# Tugas 8 PBP
+
+## Perbedaan Navigator.push dan Navigator.pushReplacement
+
+Dengan Navigator.push maka route page baru akan ditambahkan ke dalam stack di atas dari route page yang saat ini sedang diakses. Sementara itu, Navigator.pushReplacement akan menambahkan route page baru ke dalam stack dengan menggantikan posisi dari route page yang saat ini sedang diakses. Oleh karena itu, kita tidak bisa kembali ke page sebelumnya dengan metode pop jika menggunakan Navigator.pushReplacement.
+
+## Widget di dalam proyek tugas ini
+
+- Drawer untuk menampilkan menu yang digunakan untuk mengakses halaman lain
+- ListTile untuk menambahkan menu dalam bentuk List.
+- Navigator untuk menambahkan sistem stack yang berisi kumpulan widget.
+- Column untuk menyimpan beberapa widget text yang akan menampilkan value dari form.
+- Text untuk menampilkan value dalam tipe String.
+- Row untuk menampung dua widget button yang digunakan untuk increment dan decrement value.
+- Form untuk membuat template field form.
+- DropdownMenu untuk membuat menu dropdown di dalam form.
+
+## Event yang ada di Flutter
+
+- onPressed
+- onSaved
+- onChanged
+- onTap
+- onSubmitted
+
+## Cara Kerja Navigator
+
+Widget Navigator bekerja seperti tumpukan layar (stack) yang menggunakan prinsip LIFO (Last-In, First-Out). Bagian teratas dari stack ini adalah halaman yang sedang ditampilkan di layar. Dengan menggunakan metode push halaman baru akan ditambahkan ke stack dan ditampilkan ke layar. Sementara, dengan metode pop halaman akan dihapus dari stack tersebut.
+
+## Implementasi Checkpoint
+
+- Menambahkan draweer dari tutorial lab sebelumnya dengan sedikit modifikasi untuk halaman form dan tampilan item budget.
+- Membuat models untuk Budget yang akan berisi judul, nominal, dan tipe budget. Kemudian membuat halaman form di file terpisah berisi 3 input dengan tombol submit. Form dilengkapi dengan validator untuk memvalidasi input yang bertipe String ataupun Integer.
+- Membuat list budget yang berisi objek instansiasi dari models Budget yang sudah dibuat. List ini akan ditambahkan dengan item baru ketika tombol submit ditekan.
+- Membuat halaman untuk menampilkan data budget dengan mengambil list budget yang telah dibuat sebelumnya di halaman form. Halaman ini akan menampilkan judul, nominal, dan jenis dari item budget yang telah ditambahkan
