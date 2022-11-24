@@ -1,8 +1,7 @@
+import 'package:counter_7/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
-import 'form.dart';
-import 'main.dart';
-import 'models/budget.dart';
+import '../models/budget.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key, this.data});
@@ -20,37 +19,7 @@ class _ListScreenState extends State<ListScreen> {
       appBar: AppBar(
         title: Text("Data Budget"),
       ),
-      drawer: Drawer(
-        child: Column(children: [
-          ListTile(
-            title: const Text('counter_7'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MyHomePage()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Tambah Budget'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MyFormPage()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Data Budget'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const ListScreen()),
-              );
-            },
-          ),
-        ]),
-      ),
+      drawer: const DrawerList(),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           if (widget.data != null) ...[

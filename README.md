@@ -72,3 +72,39 @@ Widget Navigator bekerja seperti tumpukan layar (stack) yang menggunakan prinsip
 - Membuat models untuk Budget yang akan berisi judul, nominal, dan tipe budget. Kemudian membuat halaman form di file terpisah berisi 3 input dengan tombol submit. Form dilengkapi dengan validator untuk memvalidasi input yang bertipe String ataupun Integer.
 - Membuat list budget yang berisi objek instansiasi dari models Budget yang sudah dibuat. List ini akan ditambahkan dengan item baru ketika tombol submit ditekan.
 - Membuat halaman untuk menampilkan data budget dengan mengambil list budget yang telah dibuat sebelumnya di halaman form. Halaman ini akan menampilkan judul, nominal, dan jenis dari item budget yang telah ditambahkan
+
+
+# Tugas 9 PBP
+
+## Pengambilan data JSON tanpa membuat model
+
+Hal tersebut dapat dilakukan, tetapi akan menjadi kurang efisien karena setiap kita melakukan pengambilan data maka hasilnya harus diubah menjadi bentuk data yang kita inginkan satu persatu secara manual. Jika data JSON yang diambil jumlahnya cukup besar tentunya akan membuang banyak waktu. Selain itu, data yang diubah juga tidak memiliki bentuk standar yang pasti dibandingkan jika kita membuat modelnya terlebih dahulu.
+
+## Widget di dalam proyek tugas ini
+
+- Drawer untuk menampilkan menu yang digunakan untuk mengakses halaman lain
+- ListTile untuk menambahkan menu dalam bentuk List.
+- Navigator untuk menambahkan sistem stack yang berisi kumpulan widget.
+- Column untuk menyimpan beberapa widget text yang akan menampilkan value dari form.
+- Text untuk menampilkan value dalam tipe String.
+- Row untuk menampung dua widget button yang digunakan untuk increment dan decrement value.
+- Form untuk membuat template field form.
+- DropdownMenu untuk membuat menu dropdown di dalam form.
+- FutureBuilder untuk menangani proses pengambilan data secara asynchronous
+- GestureDetector untuk mengambil input gerakan yang diberikan user, dalam hal ini saat menekan judul film
+- Checkbox untuk menambahkan checkbox yang dapat mengubah value watched
+- Expanded untuk menambahkan space antara info film dan tombol kembali
+- AsyncSnapshot untuk menangkap response dari proses asynchronous
+
+## Mekanisme pengambilan data JSON
+
+Data JSON diambil dari endpoint di proyek sebelumnya menggunakan http package. Kemudian data tersebut dikonversi menjadi objek MyWatchList sesuai dengan model yang telah dibuat. Pengambilan data ini dilakukan secara asynchronous sehingga menghasilkan response dalam bentuk Future class. Dengan menggunakan widget FutureBuilder, data dalam bentuk JSON yang sudah diambil tadi dapat ditampilkan sesuai dengan layout Flutter.
+
+## Implementasi Checklist
+
+- Membuat model MyWatchList dengan bantuan website Quicktype berdasarkan data JSON di proyek tugas sebelumnya.
+- Melakukan refactor untuk widget Drawer dan fungsi fetching data watchlist di file terpisah.
+- Data yang telah diambil dari proses fetching ditangkap dengan widget AsyncSnapshot untuk ditampilkan di halaman baru bernama My Watchlist.
+- Setiap judul film ditampilkan dalam bentuk ListView beserta checkbox untuk mengubah status watched di dalamnya. Warna boxShadow juga disesuaikan dengan statusnya, yaitu akan berwarna hijau jika sudah menonton dan merah jika belum menonton.
+- Menambahkan GestureDetector pada tiap judul film yang akan menavigasi ke halaman detail
+- Membuat halaman detail dan mengirimkan data film dari MyWatchlist ke dalamnya untuk ditampilkan. Setiap komponen data watchlist ditampilkan dan ditambahkan button di bagian bawah halaman untuk kembali ke halaman My Watchlist dengan mekanisme Navigator.pop.

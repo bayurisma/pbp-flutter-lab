@@ -1,6 +1,5 @@
-import 'package:counter_7/list.dart';
+import 'package:counter_7/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:counter_7/form.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Tugas Flutter',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(),
     );
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
-  final String title = 'Flutter Demo Home Page';
+  final String title = 'Counter_7';
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -96,37 +95,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      drawer: Drawer(
-        child: Column(children: [
-          ListTile(
-            title: const Text('counter_7'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MyHomePage()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Tambah Budget'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const MyFormPage()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Data Budget'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const ListScreen()),
-              );
-            },
-          )
-        ]),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      drawer:
+          const DrawerList(), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
